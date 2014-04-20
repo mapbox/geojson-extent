@@ -1,0 +1,35 @@
+{
+  "name": "geojson-extent",
+  "version": "0.0.0",
+  "description": "compute the bounding box of geojson features",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mapbox/geojson-extent.git"
+  },
+  "keywords": [
+    "geojson",
+    "extent",
+    "browser",
+    "geo",
+    "boundingbox",
+    "bounds"
+  ],
+  "author": "Tom MacWright",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mapbox/geojson-extent/issues"
+  },
+  "homepage": "https://github.com/mapbox/geojson-extent",
+  "dependencies": {
+    "geojson-normalize": "0.0.0",
+    "flatten": "0.0.1",
+    "extent": "0.0.0"
+  },
+  "devDependencies": {
+    "tap": "~0.4.8"
+  }
+}
