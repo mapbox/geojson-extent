@@ -1,3 +1,5 @@
+![](http://img.shields.io/travis/mapbox/geojson-extent.svg?style=flat)
+
 # geojson-extent
 
 Compute an extent given a GeoJSON object.
