@@ -4,7 +4,8 @@
   "description": "compute the bounding box of geojson features",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tap test/*.js",
+    "build": "browserify -s geojsonExtent index.js | uglifyjs -c > geojson-extent.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,8 @@
     "geojson-coords": "0.0.0"
   },
   "devDependencies": {
-    "tap": "~0.4.8"
+    "tap": "~0.4.8",
+    "uglifyjs": "~2.3.6",
+    "browserify": "~3.46.0"
   }
 }
