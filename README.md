@@ -14,3 +14,8 @@ Compute an extent given a GeoJSON object.
 
 Given any valid GeoJSON object, return bounds in the form `[WSEN]`.
 Invalid objects will return `null`.
+
+### `extent.polygon(geojson)`
+
+Given any valid GeoJSON object, return bounds in the form of a GeoJSON polygon object.
+Invalid objects will return `null`.

@@ -1,5 +1,5 @@
 var test = require('tap').test,
-    geojsonExtent = require('../');
+geojsonExtent = require('../');
 
 
 test('corners', function(t) {
@@ -22,6 +22,14 @@ test('extent', function(t) {
         "coordinates": [ [100.0, 0.0], [101.0, 1.0] ]
     }), [100, 0, 101, 1], 'multipoint');
 
+    t.deepEqual(geojsonExtent.polygon({
+        "type": "MultiPoint",
+        "coordinates": [ [100.0, 0.0], [101.0, 1.0] ]
+    }), {
+        type: 'Polygon',
+        coordinates: [[[100,0],[101,0],[101,1],[100,1],[100,0]]]
+    }, 'multipoint');
+
     t.deepEqual(geojsonExtent(
         { "type": "GeometryCollection",
             "geometries": [
@@ -35,45 +43,45 @@ test('extent', function(t) {
     }), [100, 0, 102, 1], 'multigeometry');
 
     t.deepEqual(geojsonExtent({ "type": "MultiPolygon",
-    "coordinates": [
-      [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],
-      [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],
-       [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]
-      ]
+                              "coordinates": [
+                                  [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],
+                                  [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],
+                                      [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]
+                              ]
     }), [100, 0, 103, 3], 'multipolygon');
 
     t.deepEqual(geojsonExtent( { "type": "FeatureCollection",
-    "features": [
-      { "type": "Feature",
-        "geometry": {"type": "Point", "coordinates": [102.0, 0.5]},
-        "properties": {"prop0": "value0"}
-        },
-      { "type": "Feature",
-        "geometry": {
-          "type": "LineString",
-          "coordinates": [
-            [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]
-            ]
-          },
-        "properties": {
-          "prop0": "value0",
-          "prop1": 0.0
-          }
-        },
-      { "type": "Feature",
-         "geometry": {
-           "type": "Polygon",
-           "coordinates": [
-             [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
-               [100.0, 1.0], [100.0, 0.0] ]
-             ]
-         },
-         "properties": {
-           "prop0": "value0",
-           "prop1": {"this": "that"}
-           }
-         }
-       ]
-     }), [100, 0, 105, 1], 'example from geojson.org');
+                              "features": [
+                                  { "type": "Feature",
+                                      "geometry": {"type": "Point", "coordinates": [102.0, 0.5]},
+                                      "properties": {"prop0": "value0"}
+                              },
+                              { "type": "Feature",
+                                  "geometry": {
+                                      "type": "LineString",
+                                      "coordinates": [
+                                          [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]
+                                      ]
+                                  },
+                                  "properties": {
+                                      "prop0": "value0",
+                                      "prop1": 0.0
+                                  }
+                              },
+                              { "type": "Feature",
+                                  "geometry": {
+                                      "type": "Polygon",
+                                      "coordinates": [
+                                          [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
+                                              [100.0, 1.0], [100.0, 0.0] ]
+                                      ]
+                                  },
+                                  "properties": {
+                                      "prop0": "value0",
+                                      "prop1": {"this": "that"}
+                                  }
+                              }
+                              ]
+    }), [100, 0, 105, 1], 'example from geojson.org');
     t.end();
 });
