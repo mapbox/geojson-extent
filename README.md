@@ -18,6 +18,22 @@ var geojsonExtent = require('geojson-extent');
 geojsonExtent({ type: 'Point', coordinates: [0, 0] }); // returns 0,0,0,0 extent
 ```
 
+## bin
+
+Provides a binary that takes GeoJSON as stdin and returns a JSON stringified
+array of extent data.
+
+```sh
+$ npm install -g geojson-extent
+$ geojson-extent < file.geojson
+```
+
+Given an argument of `leaflet`, this will return Leaflet-formatted data instead.
+
+```sh
+$ geojson-extent leaflet < file.geojson
+```
+
 ## api
 
 ### `extent(geojson)`

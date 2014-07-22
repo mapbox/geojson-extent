@@ -7,6 +7,9 @@
     "test": "tap test/*.js",
     "build": "browserify -s geojsonExtent index.js | uglifyjs -c > geojson-extent.js"
   },
+  "bin": {
+    "geojson-extent": "./bin/geojson-extent"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:mapbox/geojson-extent.git"
@@ -27,7 +30,8 @@
   "homepage": "https://github.com/mapbox/geojson-extent",
   "dependencies": {
     "extent": "0.1.0",
-    "geojson-coords": "0.0.0"
+    "geojson-coords": "0.0.0",
+    "rw": "~0.1.4"
   },
   "devDependencies": {
     "tap": "~0.4.8",
