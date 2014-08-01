@@ -45,3 +45,8 @@ Invalid objects will return `null`.
 
 Given any valid GeoJSON object, return bounds in the form of a GeoJSON polygon object.
 Invalid objects will return `null`.
+
+### `extent.bboxify(geojson)`
+
+Add [bounding boxes](http://geojson.org/geojson-spec.html#bounding-boxes) to all
+appropriate GeoJSON objects - Feature, FeatureCollection, and Geometry.

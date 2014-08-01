@@ -31,7 +31,8 @@
   "dependencies": {
     "extent": "0.1.0",
     "geojson-coords": "0.0.0",
-    "rw": "~0.1.4"
+    "rw": "~0.1.4",
+    "traverse": "~0.6.6"
   },
   "devDependencies": {
     "tap": "~0.4.8",

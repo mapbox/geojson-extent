@@ -11,6 +11,175 @@ test('corners', function(t) {
     t.end();
 });
 
+test('bboxify', function(t) {
+    t.deepEqual(geojsonExtent.bboxify({
+        type: 'Point',
+        coordinates: [0, 0]
+    }), {
+        type: 'Point',
+        coordinates: [0, 0],
+        bbox: [0, 0, 0, 0]
+    }, 'a single point');
+
+    t.deepEqual(geojsonExtent.bboxify({ "type": "FeatureCollection",
+    "features": [
+      { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [102.0, 0.5]},
+        "properties": {"prop0": "value0"}
+        },
+      { "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]
+            ]
+          },
+        "properties": {
+          "prop0": "value0",
+          "prop1": 0.0
+          }
+        },
+      { "type": "Feature",
+         "geometry": {
+           "type": "Polygon",
+           "coordinates": [
+             [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
+               [100.0, 1.0], [100.0, 0.0] ]
+             ]
+         },
+         "properties": {
+           "prop0": "value0",
+           "prop1": {"this": "that"}
+           }
+         }
+       ]
+     }), {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "prop0": "value0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102,
+          0.5
+        ],
+        "bbox": [
+          102,
+          0.5,
+          102,
+          0.5
+        ]
+      },
+      "bbox": [
+        102,
+        0.5,
+        102,
+        0.5
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "prop0": "value0",
+        "prop1": 0
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            102,
+            0
+          ],
+          [
+            103,
+            1
+          ],
+          [
+            104,
+            0
+          ],
+          [
+            105,
+            1
+          ]
+        ],
+        "bbox": [
+          102,
+          0,
+          105,
+          1
+        ]
+      },
+      "bbox": [
+        102,
+        0,
+        105,
+        1
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "prop0": "value0",
+        "prop1": {
+          "this": "that"
+        }
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100,
+              0
+            ],
+            [
+              101,
+              0
+            ],
+            [
+              101,
+              1
+            ],
+            [
+              100,
+              1
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        ],
+        "bbox": [
+          100,
+          0,
+          101,
+          1
+        ]
+      },
+      "bbox": [
+        100,
+        0,
+        101,
+        1
+      ]
+    }
+  ],
+  "bbox": [
+    100,
+    0,
+    105,
+    1
+  ]
+}, 'a single point');
+    t.end();
+});
+
 test('extent', function(t) {
     t.deepEqual(geojsonExtent({
         type: 'Point',
