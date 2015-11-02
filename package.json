@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "tap": "~0.4.8",
-    "uglifyjs": "~2.3.6",
+    "uglifyjs": "~2.4.10",
     "browserify": "~5.9.3"
   }
 }
