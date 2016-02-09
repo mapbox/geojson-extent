@@ -1,6 +1,6 @@
 {
   "name": "geojson-extent",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "compute the bounding box of geojson features",
   "main": "index.js",
   "scripts": {
