@@ -4,7 +4,7 @@
   "description": "compute the bounding box of geojson features",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js",
+    "test": "eslint index.js && tap test/*.js",
     "build": "browserify -s geojsonExtent index.js | uglifyjs -c > geojson-extent.js"
   },
   "bin": {
@@ -37,6 +37,8 @@
   "devDependencies": {
     "tap": "~0.4.8",
     "uglifyjs": "~2.4.10",
-    "browserify": "~5.9.3"
+    "browserify": "~5.9.3",
+    "eslint": "~1.00.0",
+    "eslint-config-unstyled": "^1.1.0"
   }
 }
