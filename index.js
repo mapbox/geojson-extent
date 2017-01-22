@@ -1,6 +1,6 @@
-var geojsonCoords = require('geojson-coords'),
+var geojsonCoords = require('@mapbox/geojson-coords'),
     traverse = require('traverse'),
-    extent = require('extent');
+    extent = require('@mapbox/extent');
 
 module.exports = function(_) {
     return getExtent(_).bbox();
