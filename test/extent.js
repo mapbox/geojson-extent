@@ -14,12 +14,69 @@ test('corners', function(t) {
 test('bboxify', function(t) {
     t.deepEqual(geojsonExtent.bboxify({
         type: 'Point',
+        geometries: [0, 0]
+    }), {
+        type: 'Point',
+        geometries: [0, 0]
+    }, 'a point that looks like a GeometryCollection');
+
+    t.deepEqual(geojsonExtent.bboxify({
+        type: 'Point',
         coordinates: [0, 0]
     }), {
         type: 'Point',
         coordinates: [0, 0],
         bbox: [0, 0, 0, 0]
     }, 'a single point');
+
+    t.deepEqual(geojsonExtent.bboxify({
+      "type": "Feature",
+      "properties": {
+        "type": "Polygon"
+      }
+    }), {
+      "type": "Feature",
+      "properties": {
+        "type": "Polygon"
+      }
+    }, 'a feature with no geometry');
+
+    t.deepEqual(geojsonExtent.bboxify({
+      "type":"FeatureCollection",
+      "features":[
+        {
+          "type":"Feature",
+          "properties":{
+            "osm_id":243819778,
+            "name":"Port Louis",
+            "type":"city",
+            "population":147688
+          },
+          "geometry":{
+            "type":"Point",
+            "coordinates":[57.5045331,-20.1637281]
+          }
+        }
+      ]
+    }), {
+      "type" : "FeatureCollection",
+      "features" : [{
+          "type" : "Feature",
+          "properties" : {
+            "osm_id" : 243819778,
+            "name" : "Port Louis",
+            "type" : "city",
+            "population" : 147688
+          },
+          "geometry" : {
+            "type" : "Point",
+            "coordinates" : [57.5045331,-20.1637281],
+            "bbox" : [57.5045331,-20.1637281,57.5045331,-20.1637281]
+          },
+          "bbox" : [57.5045331,-20.1637281,57.5045331,-20.1637281]
+        }],
+      "bbox" : [57.5045331,-20.1637281,57.5045331,-20.1637281]
+    }, 'non-geojson types');
 
     t.deepEqual(geojsonExtent.bboxify({ "type": "FeatureCollection",
     "features": [
