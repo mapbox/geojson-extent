@@ -6,7 +6,7 @@ Compute an extent given a GeoJSON object.
 
 ## install
 
-    npm install --save geojson-extent
+    npm install --save @mapbox/geojson-extent
 
 ## example
 
