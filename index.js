@@ -39,8 +39,7 @@ module.exports.bboxify = function(_) {
 };
 
 function getExtent(_) {
-    var bbox = [Infinity, Infinity, -Infinity, -Infinity],
-        ext = extent(),
+    var ext = extent(),
         coords = geojsonCoords(_);
     for (var i = 0; i < coords.length; i++) ext.include(coords[i]);
     return ext;
