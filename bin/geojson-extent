@@ -3,7 +3,7 @@
 var geojsonExtent = require('../'),
     rw = require('rw');
 
-var ext = geojsonExtent(JSON.parse(rw.readFileSync('/dev/stdin/')));
+var ext = geojsonExtent(JSON.parse(rw.readFileSync('/dev/stdin')));
 
 if (process.argv[2] == 'leaflet') {
     console.log(JSON.stringify([
