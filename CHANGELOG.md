@@ -1,3 +1,7 @@
+## 1.0.0
+
+* First major version release (same as 0.4.0)
+
 ## 0.4.0
 
 * Confirm type is a valid geojson type before finding extent [#5](https://github.com/mapbox/geojson-extent/pull/5)
