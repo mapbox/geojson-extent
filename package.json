@@ -30,14 +30,14 @@
   "homepage": "https://github.com/mapbox/geojson-extent",
   "dependencies": {
     "@mapbox/extent": "0.4.0",
-    "@mapbox/geojson-coords": "0.0.0",
+    "@mapbox/geojson-coords": "0.0.1",
     "rw": "~0.1.4",
     "traverse": "~0.6.6"
   },
   "devDependencies": {
     "browserify": "~5.9.3",
     "cz-conventional-changelog": "1.2.0",
-    "eslint": "~1.00.0",
+    "eslint": "^7.9.0",
     "eslint-config-unstyled": "^1.1.0",
     "tap": "~0.4.8",
     "uglifyjs": "~2.4.10"
