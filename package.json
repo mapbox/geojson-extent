@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/geojson-extent",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "compute the bounding box of geojson features",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/mapbox/geojson-extent",
   "dependencies": {
     "@mapbox/extent": "0.4.0",
-    "@mapbox/geojson-coords": "0.0.1",
+    "@mapbox/geojson-coords": "0.0.2",
     "rw": "~0.1.4",
     "traverse": "~0.6.6"
   },
