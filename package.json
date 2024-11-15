@@ -31,8 +31,8 @@
   "dependencies": {
     "@mapbox/extent": "0.4.0",
     "@mapbox/geojson-coords": "0.0.2",
-    "rw": "~0.1.4",
-    "traverse": "~0.6.6"
+    "neotraverse": "^0.6.15",
+    "rw": "~0.1.4"
   },
   "devDependencies": {
     "browserify": "~5.9.3",

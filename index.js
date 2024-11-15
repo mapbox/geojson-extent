@@ -1,5 +1,5 @@
 var geojsonCoords = require('@mapbox/geojson-coords'),
-    traverse = require('traverse'),
+    traverse = require('neotraverse/legacy'),
     extent = require('@mapbox/extent');
 
 var geojsonTypesByDataAttributes = {
