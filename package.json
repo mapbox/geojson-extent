@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/geojson-extent",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "compute the bounding box of geojson features",
   "main": "index.js",
   "scripts": {
@@ -46,5 +46,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
