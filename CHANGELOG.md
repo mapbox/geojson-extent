@@ -1,3 +1,15 @@
+Starting after 1.1.0, release notes are published as [GitHub Releases](https://github.com/mapbox/geojson-extent/releases).
+
+## 1.1.0
+
+Tagged but never published to npm; its changes ship in 1.2.0.
+
+* Replace `traverse` with `neotraverse` (#17)
+
+## 1.0.1
+
+* Update `@mapbox/geojson-coords` to fix #14
+
 ## 1.0.0
 
 * First major version release (same as 0.4.0)
