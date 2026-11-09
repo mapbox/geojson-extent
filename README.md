@@ -1,5 +1,3 @@
-![](http://img.shields.io/travis/mapbox/geojson-extent.svg?style=flat)
-
 # geojson-extent
 
 Compute an extent given a GeoJSON object.
@@ -50,3 +48,13 @@ Invalid objects will return `null`.
 
 Add [bounding boxes](http://geojson.org/geojson-spec.html#bounding-boxes) to all
 appropriate GeoJSON objects - Feature, FeatureCollection, and Geometry.
+
+## Publishing
+
+Pull Requests to `main` automatically publish a new version based on the PR's title prefix (`major:`, `minor:` or `patch:`) to the npmjs registry.
+
+The published version in the registry is the source of truth for the package version, but you can manually increment the `package.json`'s `version`.
+
+### Pre-release versions on other branches
+
+For testing in downstream projects, you can manually trigger the "NPM release" workflow on a branch to publish a pre-release tagged with the short commit sha (e.g. `1.1.0-aa79c6a`) under the npm `prerelease` dist-tag, without affecting `latest`. Check the workflow results for the published version.
